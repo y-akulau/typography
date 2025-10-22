@@ -11,6 +11,10 @@
             "default": "./out/index.js"
         }
     },
+    "scripts": {
+        "check": "npm run check:cspell",
+        "check:cspell": "cspell ."
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/y-akulau/typography.git"
@@ -26,5 +30,8 @@
     "bugs": {
         "url": "https://github.com/y-akulau/typography/issues"
     },
-    "homepage": "https://github.com/y-akulau/typography#readme"
+    "homepage": "https://github.com/y-akulau/typography#readme",
+    "devDependencies": {
+        "cspell": "9.2.2"
+    }
 }
