@@ -8,16 +8,19 @@
     ],
     "exports": {
         ".": {
-            "default": "./out/index.js"
+            "default": "./out/index.js",
+            "types": "./out/index.d.ts"
         }
     },
     "scripts": {
         "format": "npx @biomejs/biome format --write",
         "lint": "npx @biomejs/biome lint --write",
-        "check": "npm run check:cspell && npm run check:format && npm run check:lint",
+        "check": "npm run check:cspell && npm run check:format && npm run check:lint && npm run check:types",
         "check:cspell": "cspell .",
         "check:format": "npx @biomejs/biome format",
-        "check:lint": "npx @biomejs/biome lint"
+        "check:lint": "npx @biomejs/biome lint",
+        "check:types": "tsc -p ./tsconfig.json --noEmit --composite false",
+        "build": "tsc -b ./tsconfig.json"
     },
     "repository": {
         "type": "git",
@@ -37,6 +40,7 @@
     "homepage": "https://github.com/y-akulau/typography#readme",
     "devDependencies": {
         "@biomejs/biome": "2.4.16",
-        "cspell": "9.2.2"
+        "cspell": "9.2.2",
+        "typescript": "5.9.3"
     }
 }
