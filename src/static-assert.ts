@@ -25,6 +25,26 @@ interface GenericTypeStaticAssertion<T> {
      * @see {@link IsSame}
      */
     isNot<Exact>(): Not<IsSame<T, Exact>>;
+
+    /**
+     * Asserts that the type extends the `Super` type.
+     */
+    extends<Super>(): T extends Super ? true : false;
+
+    /**
+     * Asserts that the type does not extend the `Super` type.
+     */
+    notExtends<Super>(): T extends Super ? false : true;
+
+    /**
+     * Asserts that the type is the supertype of the `Sub` type.
+     */
+    super<Sub>(): Sub extends T ? true : false;
+
+    /**
+     * Asserts that the type is not the supertype of the `Sub` type.
+     */
+    notSuper<Sub>(): Sub extends T ? false : true;
 }
 
 // Collect all the applicable methods.
