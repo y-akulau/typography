@@ -12,6 +12,7 @@
         }
     },
     "scripts": {
+        "format": "prettier . --write",
         "check": "npm run check:cspell",
         "check:cspell": "cspell ."
     },
@@ -32,6 +33,7 @@
     },
     "homepage": "https://github.com/y-akulau/typography#readme",
     "devDependencies": {
-        "cspell": "9.2.2"
+        "cspell": "9.2.2",
+        "prettier": "3.6.2"
     }
 }
