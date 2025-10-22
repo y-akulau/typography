@@ -13,6 +13,9 @@
         }
     },
     "scripts": {
+        "clear": "npm run clear:build && npm run clear:packages",
+        "clear:packages": "rimraf node_modules",
+        "clear:build": "rimraf build out",
         "format": "prettier . --write",
         "check": "npm run check:cspell && npm run check:ts",
         "check:cspell": "cspell .",
@@ -39,6 +42,7 @@
     "devDependencies": {
         "cspell": "9.2.2",
         "prettier": "3.6.2",
+        "rimraf": "6.0.1",
         "typescript": "5.9.3"
     }
 }
