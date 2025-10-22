@@ -1,0 +1,30 @@
+{
+    "name": "typography",
+    "version": "0.1.0",
+    "description": "Type utilities for Typescript",
+    "main": "out/index.js",
+    "files": [
+        "out"
+    ],
+    "exports": {
+        ".": {
+            "default": "./out/index.js"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/y-akulau/typography.git"
+    },
+    "keywords": [
+        "typescript",
+        "utilities",
+        "static-types",
+        "utility-types"
+    ],
+    "author": "Yauheni Akulau",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/y-akulau/typography/issues"
+    },
+    "homepage": "https://github.com/y-akulau/typography#readme"
+}
