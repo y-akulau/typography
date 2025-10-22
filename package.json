@@ -8,13 +8,16 @@
     ],
     "exports": {
         ".": {
-            "default": "./out/index.js"
+            "default": "./out/index.js",
+            "types": "./out/index.d.ts"
         }
     },
     "scripts": {
         "format": "prettier . --write",
-        "check": "npm run check:cspell",
-        "check:cspell": "cspell ."
+        "check": "npm run check:cspell && npm run check:ts",
+        "check:cspell": "cspell .",
+        "check:ts": "tsc -p ./tsconfig.json --noEmit --composite false",
+        "build": "tsc -b ./tsconfig.json"
     },
     "repository": {
         "type": "git",
@@ -34,6 +37,7 @@
     "homepage": "https://github.com/y-akulau/typography#readme",
     "devDependencies": {
         "cspell": "9.2.2",
-        "prettier": "3.6.2"
+        "prettier": "3.6.2",
+        "typescript": "5.9.3"
     }
 }
