@@ -47,10 +47,29 @@ interface GenericTypeStaticAssertion<T> {
     notSuper<Sub>(): Sub extends T ? false : true;
 }
 
+interface ObjectTypeStaticAssertion<T> {
+    /**
+     * Continues the assertion by changing the subject of the assertion to the property type of the object.
+     */
+    property<K extends keyof T>(key: K): TypeStaticAssertion<T[K]>;
+}
+
+// ObjectTypeStaticAssertion methods should be mixed only if the type is an object type.
+// prettier-ignore
+type MixObjectTypeStaticAssertion<T> =
+    IsSame<T, any> extends false
+    ? IsSame<T, never> extends false
+      ? [T] extends [object]
+        ? ObjectTypeStaticAssertion<T>
+        : unknown
+      : unknown
+    : unknown;
+
 // Collect all the applicable methods.
 // prettier-ignore
 type TypeStaticAssertion<T> =
     & GenericTypeStaticAssertion<T>
+    & MixObjectTypeStaticAssertion<T>
 
 /**
  * Can be used for static assertions on types.
