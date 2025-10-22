@@ -17,6 +17,7 @@
         "check": "npm run check:cspell && npm run check:ts",
         "check:cspell": "cspell .",
         "check:ts": "tsc -p ./tsconfig.json --noEmit --composite false",
+        "test": "tsc -b ./tsconfig.test.json",
         "build": "tsc -b ./tsconfig.json"
     },
     "repository": {
