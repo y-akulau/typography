@@ -65,11 +65,30 @@ type MixObjectTypeStaticAssertion<T> =
       : unknown
     : unknown;
 
+interface ArrayTypeStaticAssertion<T extends readonly unknown[]> {
+    /**
+     * Continues the assertion by changing the subject of the assertion to the item type of the array.
+     */
+    item(): TypeStaticAssertion<T[number]>;
+}
+
+// ArrayTypeStaticAssertion methods should be mixed only if the type is an array type.
+// prettier-ignore
+type MixArrayTypeStaticAssertion<T> =
+    IsSame<T, any> extends false
+    ? IsSame<T, never> extends false
+      ? [T] extends [readonly unknown[]]
+        ? ArrayTypeStaticAssertion<T>
+        : unknown
+      : unknown
+    : unknown;
+
 // Collect all the applicable methods.
 // prettier-ignore
 type TypeStaticAssertion<T> =
     & GenericTypeStaticAssertion<T>
     & MixObjectTypeStaticAssertion<T>
+    & MixArrayTypeStaticAssertion<T>
 
 /**
  * Can be used for static assertions on types.
